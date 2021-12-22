@@ -1,0 +1,38 @@
+<h2 class="mt-4 mb-4">Buscador de bibliotecas</h2>
+
+<div class="search-component">
+
+    <form class="load-form"
+          [formGroup]="miFormulario"
+          (ngSubmit)="submitForm()">
+
+        <div class="mb-3">
+          <label for="localidadInput" class="form-label">Localidad</label>
+          <input type="text" class="form-control" id="localidadInput" aria-describedby="emailHelp" formControlName="localidad">
+          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+        </div>
+        <div class="mb-3">
+          <label for="codigoPostalInput" class="form-label">Código Postal</label>
+          <input type="text" class="form-control" id="codigoPostalInput" formControlName="codigoPostal">
+        </div>
+        <div class="mb-3">
+            <label for="provinciaInput" class="form-label">Provincia</label>
+            <input type="text" class="form-control" id="provinciaInput" formControlName="provincia">
+        </div>
+        <div class="mb-3">
+            <label for="tipoInput" class="form-label">Tipo</label>
+            <select class="form-select" aria-label="Type Select" id="tipoInput" formControlName="tipo">
+                <option value="Publica">Pública</option>
+                <option value="Privada">Privada</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    <div>
+        <img class="img-mapbox" src="../../../assets/mapbox.png" alt="">
+    </div>
+
+</div>
+

@@ -1,0 +1,8 @@
+.search-component {
+    display: flex;
+    gap: 2rem;
+}
+
+.img-mapbox {
+    width: 500px;
+}

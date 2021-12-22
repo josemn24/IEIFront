@@ -1,0 +1,49 @@
+<h2 class="mt-4 mb-4">Carga del almacén de datos</h2>
+
+<div class="load-component">
+
+    <form class="load-form"
+          [formGroup]="miFormulario"
+          (ngSubmit)="submitForm()">
+
+          <p>Seleccione fuente:</p>
+
+          <div class="load-radios mb-3">
+      
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="loadSource" id="loadSource1" value="all" formControlName="loadSource">
+                  <label class="form-check-label" for="loadSource1">
+                      Seleccionar todas
+                  </label>
+              </div>
+      
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="loadSource" id="loadSource2" value="cat" formControlName="loadSource">
+                  <label class="form-check-label" for="loadSource2">
+                      Catalunya
+                  </label>
+              </div>
+      
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="loadSource" id="loadSource3" value="cov" formControlName="loadSource">
+                  <label class="form-check-label" for="loadSource3">
+                      Comunitat Valenciana
+                  </label>
+              </div>
+      
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="loadSource" id="loadSource4" value="eus" formControlName="loadSource">
+                  <label class="form-check-label" for="loadSource4">
+                      Euskadi
+                  </label>
+              </div>
+      
+          </div>
+      
+          <button type="submit" class="btn btn-primary">Cargar</button>
+
+    </form>
+
+</div>
+
+

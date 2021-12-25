@@ -36,3 +36,16 @@
 
 </div>
 
+<div class="search-results mt-4">
+    <p>Resultados de la búsqueda:</p>
+
+    <div class="list-libraries" *ngIf="this.libraries.length != 0">
+
+        <div class="library-item mt-3" *ngFor="let library of libraries">
+            <p>{{ library.nombre }}, {{ library.en_localidad.nombre }}, {{library.en_localidad.en_provincia.nombre}}</p>
+        </div>
+
+    </div>
+
+
+</div>

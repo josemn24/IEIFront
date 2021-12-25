@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Biblioteca } from 'src/app/models/Biblioteca';
+import { LibrariesService } from 'src/app/services/libraries.service';
 
 @Component({
   selector: 'app-search',
@@ -9,13 +11,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SearchComponent implements OnInit {
 
   miFormulario: FormGroup = this.fb.group({
-    localidad:    ['', [ Validators.required ] ],
-    codigoPostal:    ['', [ Validators.required ] ],
-    provincia:    ['', [ Validators.required ] ],
+    localidad:    ['', [  ] ],
+    codigoPostal:    ['', [  ] ],
+    provincia:    ['', [  ] ],
     tipo:    ['Publica', [ Validators.required ] ],
   });
 
-  constructor(private fb: FormBuilder) { }
+  libraries: Biblioteca[] = [];
+
+  constructor(private fb: FormBuilder,
+              private libraryService: LibrariesService) { }
 
   ngOnInit(): void {
   }
@@ -33,9 +38,22 @@ export class SearchComponent implements OnInit {
       console.log(this.miFormulario.get('provincia')?.value);
       console.log(this.miFormulario.get('tipo')?.value);
 
+      this.searchLibraries();
+
     }
     
   }
 
+  searchLibraries() {
+
+    const { localidad, codigoPostal, provincia, tipo } = this.miFormulario.value;
+
+    this.libraryService.getLibraries(localidad, codigoPostal, provincia, tipo)
+      .subscribe( resp => {
+        this.libraries = resp.BibliotecasDevolver;
+        console.log(this.libraries);
+    });
+
+  }
 
 }

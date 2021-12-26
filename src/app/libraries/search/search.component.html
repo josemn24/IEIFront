@@ -41,9 +41,25 @@
 
     <div class="list-libraries" *ngIf="this.libraries.length != 0">
 
-        <div class="library-item mt-3" *ngFor="let library of libraries">
-            <p>{{ library.nombre }}, {{ library.en_localidad.nombre }}, {{library.en_localidad.en_provincia.nombre}}</p>
-        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Localidad</th>
+                <th scope="col">Provincia</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let library of libraries; index as i">
+                <th scope="row">{{ i+1 }}</th>
+                <td>{{ library.nombre }}</td>
+                <td>{{ library.en_localidad.nombre }}</td>
+                <td>{{ library.en_localidad.en_provincia.nombre }}</td>
+              </tr>
+            </tbody>
+        </table>
+
 
     </div>
 

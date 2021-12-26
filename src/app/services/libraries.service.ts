@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { DeleteResponse, SearchResponse } from '../models/Responses';
+import { DeleteResponse, LoadResponse, SearchResponse } from '../models/Responses';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +20,28 @@ export class LibrariesService {
     return this.http.post<SearchResponse>( url, body );
   }
 
-  deleteLibraries(): Observable<DeleteResponse> {
+  loadAllLibraries(): Observable<LoadResponse> {
     const url  = `${ this.baseUrl }api/biblioteca/cargarTodasLasBibliotecas`;
+    return this.http.get<LoadResponse>( url );
+  }
+
+  loadEusLibraries(): Observable<LoadResponse> {
+    const url  = `${ this.baseUrl }api/biblioteca/cargarBibliotecasEuskadi`;
+    return this.http.get<LoadResponse>( url );
+  }
+
+  loadCatLibraries(): Observable<LoadResponse> {
+    const url  = `${ this.baseUrl }api/biblioteca/cargarBibliotecasCat`;
+    return this.http.get<LoadResponse>( url );
+  }
+
+  loadCovLibraries(): Observable<LoadResponse> {
+    const url  = `${ this.baseUrl }api/biblioteca/cargarBibliotecasValencia`;
+    return this.http.get<LoadResponse>( url );
+  }
+
+  deleteLibraries(): Observable<DeleteResponse> {
+    const url  = `${ this.baseUrl }api/biblioteca/eliminarDatos`;
     return this.http.get<DeleteResponse>( url );
   }
 

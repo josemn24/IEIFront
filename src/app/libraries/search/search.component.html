@@ -53,9 +53,9 @@
             <tbody>
               <tr *ngFor="let library of libraries; index as i">
                 <th scope="row">{{ i+1 }}</th>
-                <td>{{ library.nombre }}</td>
-                <td>{{ library.en_localidad.nombre }}</td>
-                <td>{{ library.en_localidad.en_provincia.nombre }}</td>
+                <td>{{ library.nombre | titlecase }}</td>
+                <td>{{ library.en_localidad.nombre | titlecase }}</td>
+                <td>{{ library.en_localidad.en_provincia.nombre | titlecase }}</td>
               </tr>
             </tbody>
         </table>

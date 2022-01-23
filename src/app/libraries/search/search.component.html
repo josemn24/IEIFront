@@ -1,8 +1,9 @@
 <h2 class="mt-4 mb-4">Buscador de bibliotecas</h2>
 
 <div class="search-component">
-
-    <form class="load-form"
+  <div class="row">
+    <div class="col-4">
+      <form class="load-form"
           [formGroup]="miFormulario"
           (ngSubmit)="submitForm()">
 
@@ -28,13 +29,18 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Buscar</button>
-    </form>
-
-    <div>
-        <img class="img-mapbox" src="../../../assets/mapbox.png" alt="">
+      </form>
     </div>
-
+    <div class="col-8">
+      <div class="row mapContainer">
+        <div class="col-12" id="colMap">
+          <div id='map' class="map"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 <div class="search-results mt-4">
     <p>Resultados de la búsqueda:</p>
@@ -65,3 +71,6 @@
 
 
 </div>
+
+
+
